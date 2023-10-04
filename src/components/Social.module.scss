@@ -1,0 +1,10 @@
+@import '../index.scss';
+
+.social {
+    color: $text-color;
+    text-decoration: none;
+
+    :hover {
+        color: darken($text-color, 30%);
+    }
+}

@@ -1,39 +1,41 @@
-import { useState } from 'react';
-import './App.css';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+import {
+    FaDiscord,
+    FaGithub,
+    FaLinkedin,
+    FaReddit,
+    FaTwitter,
+} from 'react-icons/fa';
+import styles from './App.module.scss';
+import { Social } from './components/Social';
 
-function App() {
-    const [count, setCount] = useState(0);
-
+export default function App() {
     return (
-        <>
-            <div>
-                <a href='https://vitejs.dev' target='_blank'>
-                    <img src={viteLogo} className='logo' alt='Vite logo' />
-                </a>
-                <a href='https://react.dev' target='_blank'>
-                    <img
-                        src={reactLogo}
-                        className='logo react'
-                        alt='React logo'
-                    />
-                </a>
-            </div>
-            <h1>Vite + React</h1>
-            <div className='card'>
-                <button onClick={() => setCount((count) => count + 1)}>
-                    count is {count}
-                </button>
-                <p>
-                    Edit <code>src/App.tsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className='read-the-docs'>
-                Click on the Vite and React logos to learn more
-            </p>
-        </>
+        <div className={styles.container}>
+            <img className={styles.picture} src='/picture.jpg' />
+            <h1 className={styles.header}>Brandon Haggstrom</h1>
+            <p className={styles.description}>Software engineer</p>
+            <Socials />
+        </div>
     );
 }
 
-export default App;
+function Socials() {
+    return (
+        <div className={styles.socials}>
+            <Social Icon={FaTwitter} url='https://twitter.com/rigidity16' />
+            <Social
+                Icon={FaReddit}
+                url='https://www.reddit.com/user/RigidityMC'
+            />
+            <Social
+                Icon={FaLinkedin}
+                url='https://www.linkedin.com/in/brandon-haggstrom'
+            />
+            <Social
+                Icon={FaDiscord}
+                url='https://discord.com/users/239457433938821121'
+            />
+            <Social Icon={FaGithub} url='https://github.com/Rigidity' />
+        </div>
+    );
+}
